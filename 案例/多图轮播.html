@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>澳门城市大学</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-size: 20px;
+        }
+        
+        .tab {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .menu {
+            text-align: center;
+        }
+        
+        .dropdown a {
+            white-space: nowrap;
+            font-weight: bold;
+            display: block;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .dropdown {
+            float: left;
+            position: relative;
+            display: inline;
+            background-color: green;
+            width: 180px;
+            margin: 0 2px;
+            padding: 10px 0;
+        }
+        
+        .dropdown:hover {
+            background-color: green;
+        }
+        
+        .dropdown-menu {
+            width: 100%;
+        }
+        
+        .picture {
+            background-image: url("https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=476720354,1380681922&fm=26&gp=0.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 200px;
+            background-color: brown;
+        }
+        
+        #div1 {
+            position: relative;
+            /* border: 1px solid #0ff; */
+            width: 1100px;
+            height: 180px;
+            margin: 0px auto 0;
+            overflow: hidden;
+        }
+        
+        #div1 p {
+            border-bottom: 1px solid red;
+        }
+        
+        #div1 ul {
+            position: absolute;
+            left: 0;
+        }
+        
+        #div1 ul li {
+            list-style: none;
+            width: 200px;
+            float: left;
+            padding: 10px;
+            height: 160px;
+        }
+        
+        #div1 ul li img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid headerbox">
+            <div class="container" style="height: 120px;">
+                <div class="row">
+                    <div class="col-sm-4" style="padding-top: 15px;"><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4235851262,705654642&fm=26&gp=0.jpg" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab">
+            <ul class="menu">
+                <li class="dropdown"><a href="#" class="white">城大首页</a></li>
+                <li class="dropdown"><a href="#" class="white">校庆首页</a></li>
+                <li class="dropdown">
+                    <a href="#" class="white">祝福城大<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">祝福城大1</a></li>
+                        <li><a href="#">祝福城大2</a></li>
+                        <li><a href="#">祝福城大3</a></li>
+                        <li><a href="#">祝福城大4</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="white">城大顾景及使命 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">大学理念</a></li>
+                        <li><a href="#">城大发展</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"> <a href="#" class="white">支持城大</a></li>
+            </ul>
+
+            <!-- /.navbar-collapse -->
+        </div>
+    </header>
+
+    <section>
+        <div class="container-fluid picture"></div>
+
+        <div id="div1">
+            <p>40周年</p>
+            <ul>
+                <li> <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3388354802,3482025022&fm=26&gp=0.jpg" />
+                </li>
+                <li><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2645586366,3435666483&fm=15&gp=0.jpg" />
+                </li>
+                <li><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=94174415,2786546417&fm=15&gp=0.jpg" />
+                </li>
+                <li><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=690449364,4147381143&fm=15&gp=0.jpg" />
+                </li>
+                <li> <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3388354802,3482025022&fm=26&gp=0.jpg" />
+                </li>
+                <li><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2645586366,3435666483&fm=15&gp=0.jpg" />
+                </li>
+                <li><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=94174415,2786546417&fm=15&gp=0.jpg" />
+                </li>
+                <li><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=690449364,4147381143&fm=15&gp=0.jpg" />
+                </li>
+                <div style="clear: none;"></div>
+            </ul>
+        </div>
+
+    </section>
+
+    <footer>
+
+    </footer>
+    <!-- js -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".dropdown").hover(function() {
+                $(this).find(".dropdown-menu").show();
+            }, function() {
+                $(this).find(".dropdown-menu").hide();
+            })
+        })
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            var oDiv = document.getElementById('div1');
+            var oUl = oDiv.getElementsByTagName('ul')[0];
+            var aLi = oUl.getElementsByTagName('li');
+            var aA = document.getElementsByTagName('a'); //获取向右向左的箭头
+            var timer = null;
+            var iSpeed = -5;
+            oUl.innerHTML += oUl.innerHTML; //定义图片可以循环播放
+            oUl.style.width = aLi.length * aLi[0].offsetWidth + 'px'; //定义外层ul的宽度，根据图片的个数和每个图片的宽度计算，保证总宽度是可调整的
+            function fnMove() {
+                if (oUl.offsetLeft < -oUl.offsetWidth / 2) {
+                    oUl.style.left = 0;
+                } else if (oUl.offsetLeft > 0) {
+                    oUl.style.left = -oUl.offsetWidth / 2 + 'px';
+                } //定义到边界的时候，实现无缝衔接
+
+                oUl.style.left = oUl.offsetLeft + iSpeed + 'px';
+
+                //定义图片的右边距随着速度不断不断增加，或减小，实现运动的效果
+            }
+            timer = setInterval(fnMove, 60);
+            // aA[0].onclick = function() {
+            //     iSpeed = -10;
+
+            //     //按下左箭头，定义向左运动
+
+            // }
+            // aA[1].onclick = function() {
+            //     iSpeed = 10;
+
+            //     //按下右箭头，定义向右运动
+            // }
+            oDiv.onmouseover = function() {
+                clearInterval(timer);
+
+                //鼠标移动到图片上，清除定时器，停止运动
+            }
+            oDiv.onmouseout = function() {
+                timer = setInterval(fnMove, 60);
+
+                //鼠标移出，重新开启定时器，重新运动
+            }
+        };
+    </script>
+</body>
+
+</html>

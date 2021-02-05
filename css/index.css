@@ -1,0 +1,247 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+}
+
+
+/* .linear {
+    background-color: red;
+    background-image: linear-gradient(red, brown);
+} */
+
+.tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: red;
+}
+
+.menu {
+    text-align: center;
+    margin: 0;
+}
+
+.dropdown {
+    float: left;
+    position: relative;
+    display: inline;
+    width: 180px;
+    margin: 0 2px;
+    padding: 10px 0;
+}
+
+.dropdown:hover {
+    background-color: green;
+}
+
+.dropdown a {
+    white-space: nowrap;
+    font-weight: bold;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    width: 100%;
+}
+
+.picture {
+    background-image: url("https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=476720354,1380681922&fm=26&gp=0.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 200px;
+    background-color: brown;
+}
+
+.dream {
+    box-sizing: content-box;
+    /* margin-top: 1.6vw; */
+}
+
+div:nth-of-type(3n+3) {
+    margin-right: 0;
+}
+
+@keyframes f-up {
+    0% {
+        will-change: transform;
+        /*优化动画卡顿1*/
+        /*position:relative;优化动画卡顿2*/
+        /*z-index: 1;优化动画卡顿2*/
+        opacity: 0;
+        /*初始状态 透明度为0*/
+        transform: translateY(100px);
+        /*初始状态 文档流下100px*/
+    }
+    100% {
+        opacity: 1;
+        /*结尾状态 透明度为1*/
+        transform: translateY(0px);
+        /*初始状态 恢复正常位置*/
+    }
+}
+
+.f-up {
+    animation-name: f-up;
+    /*动画名称*/
+    animation-duration: 0.8s;
+    /*动画持续时间*/
+    animation-iteration-count: 1;
+    /*动画次数*/
+    animation-delay: 0s;
+    /*延迟时间*/
+}
+
+#div1 {
+    position: relative;
+    width: 70%;
+    height: 180px;
+    margin: 0px auto 0;
+    overflow: hidden;
+}
+
+#div1 p {
+    padding-bottom: 10px;
+    border-bottom: 1px solid red;
+}
+
+#div1 ul {
+    position: absolute;
+    left: 0;
+}
+
+#div1 ul li {
+    list-style: none;
+    width: 200px;
+    float: left;
+    padding: 10px;
+    height: 160px;
+    line-height: 160px;
+}
+
+#div1 ul li img {
+    width: 100%;
+}
+
+footer {
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.item {
+    height: 400px;
+}
+
+.item img {
+    width: 100%;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 36px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.box1 {
+    width: 70%;
+    margin-top: 30px;
+}
+
+.more {
+    float: right;
+    padding-right: 20px;
+}
+
+.more>a {
+    text-decoration: none;
+    color: rgb(240, 170, 85);
+    font-size: 15px;
+}
+
+.list1 a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+.size {
+    color: gray;
+    font-size: 13px;
+}
+
+.list1>li {
+    padding: 10px 0px;
+    border-bottom: 1px dashed #D7D7D7;
+    position: relative;
+}
+
+.list1>li>span {
+    float: right;
+    font-size: 13px;
+    color: #A57E14;
+}
+
+.box1-1 {
+    padding-left: 50px;
+}
+
+
+/**tab*/
+
+#schools {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#tabs {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: 15px auto;
+    /* border: 1px solid #ccc; */
+}
+
+#tabs li {
+    list-style: none;
+}
+
+.list_nav {
+    float: left;
+    width: 33%;
+    height: 50px;
+    /* border-right: 1px solid red; */
+    background-color: #eee;
+    text-align: center;
+    line-height: 50px;
+}
+
+.active {
+    background-color: red;
+    color: #fff;
+}
+
+.tab_nav {
+    display: none;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: 350px;
+    margin-top: 20px;
+}
+
+.on {
+    display: block;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}

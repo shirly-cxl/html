@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>学院动态</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .headerbox {
+            border-top: 3px solid red;
+        }
+        
+        .menubox {
+            /* background-image: url(images/menu.png); */
+            height: 50px;
+            padding: 0 !important;
+            position: relative;
+            z-index: 999;
+        }
+        
+        .navbar-default {
+            border-color: transparent;
+            background-color: green;
+            margin-bottom: 0px;
+        }
+        
+        .navbar-nav>li>a {
+            color: white !important;
+            padding: 15px 28px;
+        }
+        
+        .navbar-default .navbar-nav>.open>a,
+        .navbar-default .navbar-nav>.open>a:focus {
+            background-color: #999493;
+        }
+        
+        .picture {
+            background-image: url("https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=476720354,1380681922&fm=26&gp=0.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 200px;
+            background-color: brown;
+        }
+        
+        .title {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            border-radius: 10px;
+        }
+        
+        .title>li {
+            position: relative;
+            line-height: 60px;
+            text-indent: 2em;
+            font-size: 18px;
+            background-color: white;
+            margin: 20px 14px;
+            overflow: hidden;
+            border-radius: 10px;
+            /* border-left: 5px solid #D42222; */
+        }
+        
+        .title>li:hover {
+            border-left: 5px solid green;
+            background-color: greenyellow;
+            transition: all 200ms;
+        }
+        
+        .title li a {
+            text-decoration: none;
+            color: black;
+            font-size: 24px;
+            margin-left: -30px;
+        }
+        
+        .title li::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-color: #E6B531;
+            right: -20px;
+            bottom: -20px;
+            transform: rotate(45deg);
+            z-index: 999;
+        }
+        
+        .title li::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            right: -15px;
+            bottom: -15px;
+            transform: rotate(45deg);
+        }
+        
+        .list1 a,
+        .list2 a {
+            text-decoration: none;
+            color: #A57E14;
+        }
+        
+        .list2 li {
+            font-size: 15px;
+            padding: 20px 0;
+            border-bottom: 1px dashed gray;
+        }
+        
+        .list2 span {
+            float: right;
+        }
+        
+        .Titlebox p {
+            color: peru;
+            text-indent: 2em;
+        }
+        
+        .Titlebox .biaoti {
+            font-size: 24px;
+            text-align: center;
+            border-bottom: 1px dashed orange;
+        }
+        
+        .Titlebox .biaoti span {
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            color: gray;
+            padding-top: 20px;
+        }
+        
+        .listbox a {
+            text-decoration: none;
+        }
+        
+        .listbox a:hover {
+            color: yellowgreen;
+        }
+        
+        .listbox .img-responsive {
+            width: 100%;
+        }
+        
+        .footerbox {
+            background-color: #463535;
+            min-height: 170px;
+        }
+        
+        .footerbox p {
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid headerbox">
+        <div class="container" style="height: 120px;">
+            <div class="row">
+                <div class="col-sm-4" style="padding-top: 15px;"><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4235851262,705654642&fm=26&gp=0.jpg" class="img-responsive">
+                </div>
+                <div class="col-sm-2 col-sm-offset-6 text-right ">Eng
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid menubox">
+        <!--菜单生成的简单方法 ：bs3-navbar-->
+        <nav class="navbar navbar-default container" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <!--变移动端端按钮-->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!--菜单-->
+            <div class="collapse navbar-collapse navbar-ex1-collapse ">
+                <ul class="nav navbar-nav ">
+                    <li><a href="#">首页</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">学院概况 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">学院简介</a></li>
+                            <li><a href="#">学院领导</a></li>
+                            <li><a href="#">学院大事记</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">学院咨讯<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">学院要闻</a></li>
+                            <li><a href="#">通知公告</a></li>
+                            <li><a href="#">资料下载</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">专业设置 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">软件专业</a></li>
+                            <li><a href="#">会计专业</a></li>
+                            <li><a href="#">财务管理</a></li>
+                            <li><a href="#">英语专业</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">教学科研 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">教学通知</a></li>
+                            <li><a href="#">资源下载</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">建党工作 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">组织架构</a></li>
+                            <li><a href="#">党建活动</a></li>
+                            <li><a href="#">资料下载</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">学生工作 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">辅导员队伍</a></li>
+                            <li><a href="#">学生风采</a></li>
+                            <li><a href="#">心协之家</a></li>
+                            <li><a href="#">奖助贷信息</a></li>
+                            <li><a href="#">资料下载</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">招生工作 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">招生信息</a></li>
+                            <li><a href="#">企业招聘</a></li>
+                            <li><a href="#">院友风采</a></li>
+                            <li><a href="#">毕业生服务</a></li>
+                            <li><a href="#">资源下载</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">实训实训 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">专业实训</a></li>
+                            <li><a href="#">实训基地</a></li>
+                            <li><a href="#">资源下载</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+    </div>
+
+    <div class="container-fluid picture">
+
+    </div>
+
+    <div class="container-fluid" style="background-color: #e9e3e1;padding: 20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="row">
+                        <ul class="title">
+                            <li><a href="#">学院新闻</a></li>
+                            <li><a href="#">通知公告</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-9" style="background-color: white;padding-left:50px;">
+                    <ul class="breadcrumb list1" style="margin-top: 30px;">
+                        <li><a href="#" style="color: black;">当前位置</a></li>
+                        <li><a href="#" style="color: rgb(39, 147, 219);">首页</a></li>
+                        <li><a href="#" style="color: rgb(39, 147, 219);">学院动态</a></li>
+                        <li><a href="#" style="color: rgb(39, 147, 219);">学院新闻</a></li>
+                    </ul>
+                    <div class="Titlebox">
+                        <p class="biaoti">学院院长、书记给18级学生上思政“第一课”<span>2019-04-04</span></p>
+                        <p>本站讯（通讯员 摄影：徐小艳）为深入贯彻习近平总书记在学校思想政治理论课教师座谈会的重要讲话精神，用新时代中国特色社会主义思想铸魂育人，贯彻党的教育方针落实立德树人的根本任务，提高青年学生的思想认识，强化青年学生政治思想引领，教育引导青年学生认识并担当时代使命，按照学校党委的统一部署和要求，4月3日和4月4日，大数据与人工智能学院院长曾文权、党总支书记王先清先后走进课堂，给18级学生讲授本学期思政“第一课”。学院部分专任教师、辅导员到场听课。
+                        </p>
+                        <p class="text-center" style="padding: 30px;"><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1667140698,663082855&fm=26&gp=0.jpg"></p>
+                        <p>在用通俗易懂的语言跟学生解释“思想”、“政治”二词以及思想政治课的重要性后，曾文权以《新一代人工智能背景下的科技创新与国家核心竞争力》为主题，紧密结合学生的专业，从“人工智能、科技创新、国家核心竞争力”三个方面，围绕“习近平总书记在十八大和十九大报告中对科技创新的重要论述、我国科技创新对世界的影响、新一轮人工智能时代科技革命的先机、科技创新的挑战及机遇”等内容进行了深入浅出的讲解。曾文权强调创新是国家命运所系，是发展形势所迫，是世界大势所趋，只有人才强、科技强，才有产业强、经济强和国家强。号召全体同学要抓住新一代人工智能技术的绝佳机会，努力学习新科技、应用新科技，做新时代、新技术应用的弄潮儿。
+                        </p>
+                        <p>整堂课生动有趣，气氛活跃，互动性强。大家纷纷表示通过曾文权的课，不仅对自己的专业、对科技创新有了更深刻的认识，还更清楚地意识到了自己肩负的时代使命，决定要努力学好专业技术，为进一步提高我国的核心竞争力，把我国建设成为世界科技强国而奋斗。
+                        </p>
+                        <p>在用通俗易懂的语言跟学生解释“思想”、“政治”二词以及思想政治课的重要性后，曾文权以《新一代人工智能背景下的科技创新与国家核心竞争力》为主题，紧密结合学生的专业，从“人工智能、科技创新、国家核心竞争力”三个方面，围绕“习近平总书记在十八大和十九大报告中对科技创新的重要论述、我国科技创新对世界的影响、新一轮人工智能时代科技革命的先机、科技创新的挑战及机遇”等内容进行了深入浅出的讲解。曾文权强调创新是国家命运所系，是发展形势所迫，是世界大势所趋，只有人才强、科技强，才有产业强、经济强和国家强。号召全体同学要抓住新一代人工智能技术的绝佳机会，努力学习新科技、应用新科技，做新时代、新技术应用的弄潮儿。
+                        </p>
+                        <p>整堂课生动有趣，气氛活跃，互动性强。大家纷纷表示通过曾文权的课，不仅对自己的专业、对科技创新有了更深刻的认识，还更清楚地意识到了自己肩负的时代使命，决定要努力学好专业技术，为进一步提高我国的核心竞争力，把我国建设成为世界科技强国而奋斗。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="container-fluid footerbox">
+        <div class="container">
+            <div class="row" style="padding-top: 30px;">
+                <div class="col-xs-12">
+                    <p>广东科学技术职业学院--财会与金融学院 ◎2019 版权所有</p>
+                    <p>电话：0756-7796XXX 传真：0756-7796XXX </p>
+                    <p>地址：广东省珠海市金湾区广东科学技术职业学院图书馆八楼东面</p>
+                    <p>&lt;&lt;&lt;请使用 “极速模式” 或 “IE9” 以上浏览器以获得最佳的浏览效果&gt;&gt;&gt;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>

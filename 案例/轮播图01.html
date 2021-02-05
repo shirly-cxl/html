@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="../css/swiper-bundle.min.css">
+<style type="text/css">
+   * {
+      margin: 0;
+      padding: 0;
+   }
+
+   body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+   }
+
+   .swiper-container {
+      width: 60%;
+      height: 300px;
+      margin: 20px auto;
+   }
+
+   .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+   }
+
+   /* .append-buttons {
+      text-align: center;
+      margin-top: 20px;
+   }
+
+   .append-buttons a {
+      display: inline-block;
+      border: 1px solid #007aff;
+      color: #007aff;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin: 0 10px;
+      font-size: 13px;
+   } */
+</style>
+
+
+
+<body>
+   <h1><a href="https://www.swiper.com.cn/api/pagination/423.html" target="news" style="text-decoration: none; color: #000;margin: 50px;">链接地址：https://www.swiper.com.cn/api/pagination/423.html</a></h1>
+   <div id="box">
+      <div class="swiper-container">
+         <div class="swiper-wrapper">
+            <div class="swiper-slide">
+               <img
+                  src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3176804013,2400743669&fm=11&gp=0.jpg">
+               <p>vtfhyb</p>
+            </div>
+            <div class="swiper-slide">
+               <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=596121752,2887264608&fm=11&gp=0.jpg">
+               <p>vygvbhbsww</p>
+            </div>
+            <div class="swiper-slide">
+               <img
+                  src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3786661711,1730088965&fm=11&gp=0.jpg">
+               <p>vgjhknhftk</p>
+            </div>
+            <div class="swiper-slide">
+               <img
+                  src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3176804013,2400743669&fm=11&gp=0.jpg">
+               <p>hyujihfrhj</p>
+            </div>
+            <div class="swiper-slide">
+               <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=596121752,2887264608&fm=11&gp=0.jpg">
+               <p>gykmcdawtfhju</p>
+            </div>
+            <div class="swiper-slide">
+               <img
+                  src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3786661711,1730088965&fm=11&gp=0.jpg">
+               <p>bgygunmkmk</p>
+            </div>
+            <div class="swiper-slide">
+               <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=596121752,2887264608&fm=11&gp=0.jpg">
+               <p>vhgghuhbyuty</p>
+            </div>
+            <div class="swiper-slide">
+               <img
+                  src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3786661711,1730088965&fm=11&gp=0.jpg">
+               <p>buyghiknvkfh</p>
+            </div>
+
+         </div>
+         <!--如果你需要分页-->
+         <div class="swiper-pagination"></div>
+         <!--如果你需要前进后退按钮-->
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev" style="color: bisque;"></div>
+      </div>
+   </div>
+   <script type="text/javascript" src="../js/swiper-bundle.min.js"></script>
+   <script type="text/javascript">
+      var swiper = new Swiper('.swiper-container', {
+         slidesPerView: 3,
+         spaceBetween: 30,
+         autoplay:true,
+         pagination: {
+            el: '.swiper-pagination',
+            type: 'fraction',
+         },
+         //根据slider的宽度自动分布
+         //   slidesPerView: 'auto',
+         // active下 居中显示
+         centeredSlides: true,
+         //    前进后退按钮
+         navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+         }
+      });
+   </script>
+</body>
+
+</html>

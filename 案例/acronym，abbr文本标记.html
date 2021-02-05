@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>acronym，abbr文本标记</title>
+    <script src="../js/jquery.js"></script>
+    <style type="text/css">
+        #caomei {
+            width: 500px;
+            height: 315px;
+            position: relative;
+        }
+        
+        #hint {
+            position: absolute;
+            bottom: 45%;
+            left: 10%;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            display: none;
+        }
+        
+        ul {
+            text-decoration: none;
+        }
+        
+        li {
+            list-style: square;
+            color: green;
+            line-height: 40px;
+            font-size: 20px;
+        }
+        
+        li a {
+            text-decoration: none;
+            color: #000;
+        }
+        
+        acronym,
+        abbr {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="caomei">
+        <a href="#">
+            <img class="img" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3848402655,92542552&fm=26&gp=0.jpg" />
+        </a>
+        <p id="hint">草莓</p>
+    </div>
+    <ul>
+        <li>
+            <abbr title="学校庆祝办学四十周年文艺晚会圆满举办"><a href="#">学校庆祝办学四十周年文艺晚会圆满举办</a></abbr>
+        </li>
+        <li>
+            <abbr title="人文旅游系举办系列返校日活动庆贺母校四十华诞"><a href="#">人文旅游系举办系列返校日活动庆贺母校四十华诞</a></abbr>
+        </li>
+        <li>
+            <acronym title="我校成功举办庆祝建校四十周年校友大会"><a href="#">我校成功举办庆祝建校四十周年校友大会</a></acronym>
+        </li>
+    </ul>
+    <abbr title="草莓">
+        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3848402655,92542552&fm=26&gp=0.jpg" />
+    </abbr>
+</body>
+
+<script>
+    $(document).ready(function() {
+        $(".img").mouseover(function() {
+            $("#hint").show();
+        });
+        $(".img").mouseout(function() {
+            $("#hint").hide();
+        });
+    })
+</script>
+
+</html>

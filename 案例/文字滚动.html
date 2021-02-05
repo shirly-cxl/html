@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>文字滚动</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .die {
+            width: 1007px;
+            height: 600px;
+            margin: 0 auto;
+            display: flex;
+            background-color: aquamarine;
+            position: relative;
+        }
+        
+        .die img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .right {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="die">
+        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2578562569,2419302040&fm=15&gp=0.jpg" border="0" />
+        <div class="right">
+            <!-- <MARQUEE id=a onmouseover=a.stop() onmouseout=a.start() scrollAmount=2 direction=up style="height:250px;width:350px; *width:350px; margin-left:-30px;text-align:justify; text-justify:inter-ideograph;">
+                &nbsp;&nbsp;&nbsp;&nbsp;2011年10月的澳門金秋分外宜人，&nbsp;正是蓮花果實成熟<br>的季節。迎來了澳門城市大學30華誕的喜慶日子。
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;古人雲30而立。&nbsp;30年對於一所大學的發展來說，的確<br>也是一段漫長的風雨歷程，蘊含了全體師生的共同智慧和努力；所以，今天也是全體師生的重要節日。歷經30年坎坷，春華秋實，澳門城市大學正在步入穩健發展階段。
+                <br>&nbsp;&nbsp;&nbsp; 澳門城市大學30年華誕是一個契機，&nbsp;是一種凝聚，是
+                <br>一輪牽引，是一次總結，也是一項軟實力。校慶活動將澳門城市大學教職員、學生、校友和社會各界人士的關愛合力轉化為新時期發展的動力。30年校慶昭示了城大新時期的責任與使命；也承載了國家領導和澳門特區政府對城大的厚望與囑託，以及城大管理層、教師、學生對未來發展的信念與共識。
+                <br>&nbsp;&nbsp;&nbsp; 澳門城市大學的校訓是&nbsp;「明德、博學、尚行」，&nbsp;“明
+                <br>德，方可以致遠”。城大需要更好地規劃未來，以“更多的智慧、更大的勇氣、更具創造性的創新探索和更有韌性的努力”，逐一破解發展過程遇到的諸多難題；以一流開放大學标准提升服務理念，在澳門特區和國家的學習型社會建設中做出新的貢獻。
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;澳門城市大學繼承了澳門的文脈，傳遞著澳門的城市靈魂；堅持以品質求生存，以特色謀發展，立足澳門，面向國內，拓展海外。澳門城市大學志向遠大，追求卓越，服务于澳門，服务于中國，服务于世界。
+                <br>&nbsp;&nbsp;&nbsp; 2011年金秋，&nbsp;澳門的天空註定將留下一抹重重的華彩。我們相信澳門城市大學的未來一定會更加輝煌!
+            </MARQUEE> -->
+            <marquee id=a onmouseover=a.stop() onmouseout=a.start() scrollAmount=2 direction=up style="height:250px;width:350px; *width:350px; margin-left:-30px;text-align:justify; text-justify:inter-ideograph;">
+                <p style="text-indent: 2em;line-height: 2em;"> 2011年10月的澳門金秋分外宜人， 正是蓮花果實成熟 的季節。迎來了澳門城市大學30華誕的喜慶日子。
+                </p>
+                <p style="text-indent: 2em;line-height: 2em;">古人雲30而立。 30年對於一所大學的發展來說，的確 也是一段漫長的風雨歷程，蘊含了全體師生的共同智慧和努力；所以，今天也是全體師生的重要節日。歷經30年坎坷，春華秋實，澳門城市大學正在步入穩健發展階段。 澳門城市大學30年華誕是一個契機， 是一種凝聚，是 一輪牽引，是一次總結，也是一項軟實力。校慶活動將澳門城市大學教職員、學生、校友和社會各界人士的關愛合力轉化為新時期發展的動力。30年校慶昭示了城大新時期的責任
+                </p>
+            </marquee>
+        </div>
+    </div>
+    <!-- <marquee id="affiche" align="left" behavior="scroll" bgcolor="#fff" direction="up" height="250" width="350" hspace="50" vspace="40" loop="-1" scrollamount="15" scrolldelay="150" onMouseOut="this.start()" onMouseOver="this.stop()">
+
+        <p> 2011年10月的澳門金秋分外宜人， 正是蓮花果實成熟 的季節。迎來了澳門城市大學30華誕的喜慶日子。
+        </p>
+        <p>古人雲30而立。 30年對於一所大學的發展來說，的確 也是一段漫長的風雨歷程，蘊含了全體師生的共同智慧和努力；所以，今天也是全體師生的重要節日。歷經30年坎坷，春華秋實，澳門城市大學正在步入穩健發展階段。 澳門城市大學30年華誕是一個契機， 是一種凝聚，是 一輪牽引，是一次總結，也是一項軟實力。校慶活動將澳門城市大學教職員、學生、校友和社會各界人士的關愛合力轉化為新時期發展的動力。30年校慶昭示了城大新時期的責任
+        </p>
+    </marquee> -->
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>
