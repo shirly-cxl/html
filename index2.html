@@ -1,106 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>tab选项卡</title>
-    <meta charset="utf-8">
-    <script src="js/jquery.js"></script>
-    <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
-    <style type="text/css">
-        li {
-            list-style: none;
-        }
-        
-        * {
-            margin: 0px;
-            padding: 0px;
-        }
-        
-        #tab {
-            position: relative;
-            width: 600px;
-            height: 400px;
-            margin: 50px auto;
-            border: 1px solid #ccc;
-        }
-        
-        .list_nav {
-            float: left;
-            width: 199px;
-            height: 50px;
-            border-right: 1px solid red;
-            background-color: #eee;
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .left_line:not(:first-child) {
+            border-left: 1px solid gray;
             text-align: center;
-            line-height: 50px;
         }
         
-        .active {
-            background-color: red;
+        .left_line p {
+            font-size: 20px;
+            font-weight: 600;
+            color: #000;
+            text-align: center;
         }
         
-        .tab_nav {
-            display: none;
-            position: absolute;
-            top: 50px;
-            width: 100%;
-            height: 350px;
+        .left_line .g_color {
+            color: rgb(0, 131, 100);
+            font-size: 44px;
         }
         
-        .on {
-            display: block;
+        .g_color span {
+            font-size: 15px;
+            margin-left: 10px;
+        }
+        
+        .imgs a {
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+        }
+        
+        .imgs img {
+            width: 38px;
+            height: 39px;
+            margin: 0 10px;
+        }
+        
+        footer {
+            background-color: rgb(0, 131, 100);
+            color: #fff;
+            margin-top: 60px;
+            padding: 90px 0;
+        }
+        
+        .footer_p {
+            margin-top: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .w_color h3 {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .w_color p {
+            color: rgb(144, 193, 183);
         }
     </style>
 </head>
 
 <body>
-    <div id="tab">
-        <ul class="list">
-            <li class="list_nav active">1</li>
-            <li class="list_nav">2</li>
-            <li class="list_nav">3</li>
-        </ul>
-        <ul class="tab">
-            <li class="tab_nav on">1</li>
-            <li class="tab_nav">2</li>
-            <li class="tab_nav">3</li>
-        </ul>
+    <div class="container-fluid" style="margin-top: 200px;">
+        <div class="row">
+            <div class="col-sm-2 left_line">
+                <p>创立於</p>
+                <p class="g_color">1981</p>
+            </div>
+            <div class="col-sm-2 left_line">
+                <p>学生</p>
+                <p class="g_color">6000+</p>
+            </div>
+            <div class="col-sm-2 left_line">
+                <p>教敬人员</p>
+                <p class="g_color">~400</p>
+            </div>
+            <div class="col-sm-2 left_line">
+                <p>聯合實验室</p>
+                <p class="g_color">31<span>所</span></p>
+            </div>
+            <div class="col-sm-2 left_line">
+                <p>全球交流学府</p>
+                <p class="g_color">58<span>所</span></p>
+            </div>
+            <div class="col-sm-2 left_line">
+                <p>雨岸四地大學排名</p>
+                <p class="g_color">100<span>强</span></p>
+            </div>
+        </div>
     </div>
-    <script>
-        //js实现tab选项卡交互
-        //方法一：
-        var aList = document.getElementsByClassName("list_nav"),
-            aTab = document.getElementsByClassName("tab_nav"),
-            index = 0; //用来存储上一次的值
-        for (var i = 0; i < aList.length; i++) {
-            //闭包加函数自执行
-            (function(i) {
-                aList[i].onclick = function() {
-                    aList[index].classList.remove("active");
-                    aTab[index].classList.remove("on");
-                    index = i;
-                    aList[index].classList.add("active");
-                    aTab[index].classList.add("on");
-                }
-            })(i);
-        }
-        //方法二：
-        var aList = document.getElementsByClassName("list_nav"),
-            aTab = document.getElementsByClassName("tab_nav");
-        for (var i = 0; i < aList.length; i++) {
-            aList[i].index = i;
-            //清除所有li的class
-            aList[i].onclick = function() {
-                for (var i = 0; i < aList.length; i++) {
-                    aList[i].classList.remove("active");
-                    aTab[i].classList.remove("on");
-                }
-                //给当前li添加样式
-                aList[this.index].classList.add("active");
-                aTab[this.index].classList.add("on");
-            }
-        }
-    </script>
 
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-6 col-md-4" style="padding-left: 100px;">
+                    <div style="width: 268px; height: 85px;">
+                        <img src="images/footer logo.png" style="width: 100%; height: 100%;" />
+                    </div>
+                    <div class="footer_p">
+                        <p>地址:澳門氹仔徐日昇寅公馬路 | 電話: (853)2878-1698</p>
+                        <p>傳真:(853)2878-1691 | 電郵: info@cityu.mo</p>
+                    </div>
+                    <div class="row imgs">
+                        <a href="#"> <img src="images/facebook logo-01-01.png" /></a>
+                        <a href="#"> <img src="images/you-01.png" /></a>
+                        <a href="#"> <img src="images/ins-01.png" /></a>
+                        <a href="#"> <img src="images/weibo-01.png" /></a>
+                        <a href="#"> <img src="images/youku logo.png" style="width: 30px;height: 31px;" /></a>
+                        <a href="#"> <img src="images/weixin-01.png" /></a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-8 col-sm-6" style="padding-left: 150px;">
+                    <div class="row w_color">
+                        <div class="col-sm-2">
+                            <h3>課程</h3>
+                            <p>學士學位</p>
+                            <p>碩士學位</p>
+                            <p>博士學位</p>
+                            <p>文憑、大學先修</p>
+                        </div>
+                        <div class="col-sm-2">
+                            <h3>關於城大</h3>
+                            <p>大學簡介</p>
+                            <p>大學校徽校訓</p>
+                            <p>大事記</p>
+                            <p>校園環境</p>
+                            <p>城大宣傳片</p>
+                        </div>
+                        <div class="col-sm-2">
+                            <h3>新聞及活動</h3>
+                            <p>新聞</p>
+                            <p>重要公告</p>
+                            <p>城大出品</p>
+                            <p>畢業時刻</p>
+                        </div>
+                        <div class="col-sm-2">
+                            <h3>資訊</h3>
+                            <p>未來學生</p>
+                            <p>在校學生</p>
+                            <p>教職員</p>
+                            <p>校友</p>
+                            <p>訪客</p>
+                        </div>
+                        <div class="col-sm-3">
+                            <h3>快速連結</h3>
+                            <p>地圖</p>
+                            <p>校曆</p>
+                            <p>教職員</p>
+                            <p>校友</p>
+                            <p>訪客</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
