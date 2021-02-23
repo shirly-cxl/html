@@ -1,0 +1,213 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2 {
+    color: #F76A20;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 3.5em;
+    line-height: 1.35;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+}
+
+
+/* header */
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3em 0;
+    z-index: 1;
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+    padding: 0;
+    color: #fff;
+}
+
+.navbar-nav>li>a {
+    color: #ddd !important;
+    font-size: 13px;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navbar-nav>li>a:hover {
+    font-weight: bold;
+    color: #fff;
+}
+
+
+/* Banner */
+
+#banner {
+    background-attachment: fixed;
+    background-image: url(https://www.um.edu.mo/35th_anniversary/images/banner06.jpg);
+    background-position: center top;
+    background-size: cover;
+    line-height: 1.75;
+}
+
+.banner_bj {
+    padding-top: 22em;
+    padding-right: 20em;
+    width: 100%;
+    height: 90vh;
+    background-color: rgba(55, 52, 55, .8);
+}
+
+.text {
+    width: 640px;
+}
+
+.text p {
+    color: #aaa;
+    font-size: 1em;
+    margin-bottom: 1.75em;
+}
+
+
+/* footer */
+
+.footer1 {
+    background-color: #008364;
+    padding: 60px 0px;
+    height: auto;
+}
+
+.footer1 .left_column {
+    padding-left: 100px;
+    text-align: left;
+}
+
+.footer1 .left_column .footer_logo {
+    width: 230px;
+    height: 70px;
+}
+
+.footer1 .left_column .footer_logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.footer1 .left_column .footer_p {
+    margin-top: 70px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #fff;
+}
+
+.footer1 .left_column .footer_icon {
+    margin-top: 25px;
+    font-size: 15px;
+    margin-left: -10px;
+}
+
+.footer1 .left_column .footer_icon .icon-list {
+    display: flex;
+}
+
+.footer1 .left_column .footer_icon .icon-list .item {
+    width: 30px;
+    height: 30px;
+    margin-right: 23px;
+    list-style: none;
+}
+
+.footer1 .left_column .footer_icon .icon-list .item .icon-images {
+    margin-left: 1px;
+}
+
+.qr {
+    background: url(../images/wechat_QRcode.png) no-repeat;
+    height: 80px;
+    width: 80px;
+    float: left;
+    background-size: 100% 100%;
+}
+
+.code_weixin {
+    padding: 10px;
+    background: #3a3a3a;
+    border-radius: 5px;
+    text-align: center;
+    width: 96px;
+    position: absolute;
+    bottom: 45px;
+    left: -40px;
+    display: none;
+}
+
+.weixin_item {
+    position: relative;
+}
+
+.weixin_item:hover .code_weixin {
+    display: block;
+}
+
+.code_weixin::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    margin-left: -5px;
+    border-top: 10px solid #3a3a3a;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.code_weixin p {
+    font-size: 12px;
+    color: #fff;
+    line-height: 1;
+}
+
+.code_weixin span {
+    font-size: 12px;
+    color: #008264;
+    line-height: 1;
+    float: left;
+    text-align: center;
+    display: block;
+    padding: 3px 0 7px;
+    width: 100%;
+}
+
+.icon-images {
+    width: 30px;
+    line-height: 1;
+    display: block;
+    margin: 0;
+}
+
+.footer1 .rigth_column {
+    padding-left: 48px;
+    font-size: 13px;
+    text-align: left;
+}
+
+.footer1 .rigth_column a {
+    color: #85B9AD;
+    text-decoration: none;
+}
+
+.footer1 .rigth_column a:hover {
+    color: #fff;
+}
+
+.footer1 .rigth_column h6 {
+    margin-bottom: 25px;
+    color: #fff;
+}

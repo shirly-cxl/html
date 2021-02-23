@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pdf</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/index2.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header" class="container-fluid" style="background-color:transparent;">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#"><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4235851262,705654642&fm=26&gp=0.jpg" width="450" alt="" style="padding-left: 20%;" /></a>
+            </div>
+            <div class="container-fluid col-md-8">
+                <nav class="navbar navbar-default container" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse ">
+                        <ul class="nav navbar-nav ">
+                            <li><a href="https://www.um.edu.mo/35th_anniversary">首頁</br>Home</a></li>
+                            <li><a href="#">致辭</br>Speech</a></li>
+                            <li><a href="#">大事紀要</br>Milestones</a></li>
+                            <li><a href="#">紀念冊</br>COMMEMORATIVE PHOTO BOOK</a></li>
+                            <li><a href="#">澳大概況</br>UM Overview</a></li>
+                            <li><a href="#">活動焦點</br>Event Highlights</a></li>
+                            <li><a href="#">精彩瞬間</br>Event Photos</a></li>
+                            <li><a href="#">媒體報導</br>Media Reports</a></li>
+                            <li><a href="#">視頻</br>videos</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="banner_bj" style="height: 10vh;">
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container-fluid wrapper">
+            <header class="major">
+                <h2>視頻</br>VIDEOS</h2>
+            </header>
+            <div class="container-fluid">
+                <div class="photos">
+                    <div class="photos_bj"><span class="image"><a
+                                href="https://eod.umac.mo/ipr/mp4/35th_open_day_aerial_shot02.mp4" class="html5lightbox"
+                                data-group="mygroup"
+                                data-thumbnail="https://www.um.edu.mo/35th_anniversary/images/video_thumbnail01.jpg"
+                                data-width="1280" data-height="720"
+                                title="鳥瞰3.19澳大校慶VIP Day Aerial View of 3.19 UM VIP Day"><img
+                                    src="https://www.um.edu.mo/35th_anniversary/images/video_thumbnail01.jpg"
+                                    alt="" /></a></span>
+                    </div>
+                    <div class="photos_bj"><span class="image"><a
+                                href="https://eod.umac.mo/ipr/mp4/20160406_sportday.mp4" class="html5lightbox"
+                                data-group="mygroup"
+                                data-thumbnail="https://www.um.edu.mo/35th_anniversary/images/video_thumbnail02.jpg"
+                                data-width="1280" data-height="720"
+                                title="第一屆澳大運動會圓滿舉行 The First UM Sports Day Ends with Success"><img
+                                    src="https://www.um.edu.mo/35th_anniversary/images/video_thumbnail02.jpg"
+                                    alt="" /></a></span>
+                    </div>
+                    <div class="photos_bj"><span class="image"><a
+                                href="https://eod.umac.mo/ipr/mp4/319_promo_long_2.mp4" class="html5lightbox"
+                                data-group="mygroup"
+                                data-thumbnail="https://www.um.edu.mo/35th_anniversary/images/video_thumbnail03.jpg"
+                                data-width="1280" data-height="720" title="3.19 UM VIP Day"><img
+                                    src="https://www.um.edu.mo/35th_anniversary/images/video_thumbnail03.jpg"
+                                    alt="" /></a></span>
+                    </div>
+                    <div class="photos_bj" style="background-color: #fff;"><span class="image">
+                            <p style="text-transform:none;">鳥瞰3.19澳大校慶VIP Day</br>Aerial View of 3.19 UM VIP Day</p>
+                        </span>
+                    </div>
+                    <div class="photos_bj" style="background-color: #fff;"><span class="image">
+                            <p style="text-transform:none;">第一屆澳大運動會圓滿舉行</br>The First UM Sports Day Ends with Success
+                            </p>
+                        </span>
+                    </div>
+                    <div class="photos_bj" style="background-color: #fff;"><span class="image">
+                            <p style="text-transform:none;">3.19 UM VIP Day</p>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+
+    <!-- Four -->
+    <footer>
+        <div class="dream">
+            <p>澳門氹仔徐日昇寅公馬路 電話: (853)2878-1698 傳真:(853)2878-1691 電郵: info@cityu.mo</p>
+        </div>
+    </footer>
+
+    <!-- js -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/html5lightbox.js"></script>
+    <script>
+        $(window).scroll(function() {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            var obj = document.getElementById("header");
+            if (scrollTop >= 280) {
+                obj.style.backgroundColor = "#008364";
+            } else {
+                obj.style.backgroundColor = "transparent";
+            }
+        });
+    </script>
+</body>
+
+</html>

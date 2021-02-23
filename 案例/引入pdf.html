@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pdf</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/index2.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header" class="container-fluid" style="background-color:transparent;">
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#"><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4235851262,705654642&fm=26&gp=0.jpg" width="450" alt="" style="padding-left: 20%;" /></a>
+            </div>
+            <div class="container-fluid col-md-8">
+                <nav class="navbar navbar-default container" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse ">
+                        <ul class="nav navbar-nav ">
+                            <li><a href="#">首頁</br>Home</a></li>
+                            <li><a href="#">致辭</br>Speech</a></li>
+                            <li><a href="#">大事紀要</br>Milestones</a></li>
+                            <li><a href="#">紀念冊</br>COMMEMORATIVE PHOTO BOOK</a></li>
+                            <li><a href="#">澳大概況</br>UM Overview</a></li>
+                            <li><a href="#">活動焦點</br>Event Highlights</a></li>
+                            <li><a href="#">精彩瞬間</br>Event Photos</a></li>
+                            <li><a href="#">媒體報導</br>Media Reports</a></li>
+                            <li><a href="#">視頻</br>videos</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="banner_bj" style="height: 10vh;">
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container-fluid wrapper">
+            <header class="major">
+                <h2>紀念冊</br>COMMEMORATIVE PHOTO BOOK</h2>
+            </header>
+            <div class="container-fluid">
+                <div class="row" align="center">
+                    <embed src="../images/7 ⑦ VII柒 111 seven 七.pdf" width="1190" type='application/pdf' height="893" align="ABSMIDDLE">
+                </div>
+            </div>
+    </section>
+
+    <!-- Four -->
+    <footer>
+        <div class="dream">
+            <p>澳門氹仔徐日昇寅公馬路 電話: (853)2878-1698 傳真:(853)2878-1691 電郵: info@cityu.mo</p>
+        </div>
+    </footer>
+
+    <!-- js -->
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(window).scroll(function() {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            var obj = document.getElementById("header");
+            if (scrollTop >= 280) {
+                obj.style.backgroundColor = "#008364";
+            } else {
+                obj.style.backgroundColor = "transparent";
+            }
+        });
+    </script>
+</body>
+
+</html>
