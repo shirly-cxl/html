@@ -1,3 +1,9 @@
+@font-face {
+    /* 自定义字体名称 */
+    font-family: MyFontName;
+    src: url(../font/WorkSans-Bold.ttf)
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -34,6 +40,8 @@ h2 {
 }
 
 .navbar-nav>li>a {
+    /* 使用 */
+    font-family: MyFontName;
     color: #ddd !important;
     font-size: 13px;
     display: inline-block;
