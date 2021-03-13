@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>vue框架</title>
+    <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+
+    <style>
+        body {
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+        }
+        
+        [v-cloak] {
+            display: none;
+        }
+        
+        .colors {
+            color: red;
+        }
+        
+        .thin {
+            font-weight: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 闪烁问题 -->
+        <h1 v-cloak>{{msg1}}</h1>
+        <!-- 没有 闪烁问题 且v-text会覆盖原本的内容 -->
+        <p v-text="msg1"> 没有 闪烁问题 且v-text会覆盖原本的内容</p>
+
+        <div>{{msg2}}</div>
+        <div v-html="msg2"></div>
+        <!--  v-bind: 或者 : 绑定属性 -->
+        <input type="button" value="鼠标移入按钮" v-bind:title="mytitle+msg1" />
+        <!-- v-on 或者 @ 事件绑定 -->
+        <input type="button" value="点击按钮" :title="mytitle+'245'" v-on:click="show" />
+        <div style="margin: 20px 0;">
+            <h3 :style="{ 'font-weight': 500, color: 'red'}">跑马灯效果</h3>
+            <input type="button" value="浪起来" v-on:click="lang" />
+            <input type="button" value="停止" @click="stop" />
+            <p v-text="msg"></p>
+        </div>
+        <div>
+            <h3 :class="['colors', { 'thin':chose}]">事件修饰符</h3>
+            <p>stop阻止冒泡</p>
+            <!-- 视频链接： https://www.bilibili.com/video/BV1r4411d7dn?p=13&spm_id_from=pageDriver -->
+            <a href="http://www.baidu.com" @click.prevent='linkClick'>prevent阻止跳转到百度</a>
+        </div>
+        <div>
+            <h4>{{text}}</h4>
+            <input v-model='text' type="text" style="width: 80%;height: 35px;display: block;" />
+            <input type="text" v-model='n1' />
+            <select v-model='opt'>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" v-model='n2' />
+            <input type="button" value="=" @click="addResult" />
+            <input type="text" v-model='result' />
+        </div>
+        <div>
+            <h3>vue ---- for循环数组</h3>
+            <p v-for="(item,index) in list">{{index}}--------{{item}}</p>
+            <h3>vue ---- for循环对象</h3>
+            <p v-for="(val,key,i) in user">值{{val}}--------键{{key}}-------索引{{i}}</p>
+        </div>
+
+        <div>
+            <label>ID<input type="text" v-model='id'/></label>
+            <label>NAME<input type="text" v-model='name'/></label>
+            <input type="button" value="添加" @click="add" />
+            <p v-for="item in peple" :key="item.id">
+                <input type="checkbox" />{{item.id}}---------{{item.name}}
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '欢迎学习vue',
+                msg1: '欢迎欢迎欢迎,热烈欢迎来到vue基础',
+                msg2: '<h1>v-html="msg2"解析</h1>',
+                mytitle: '这是一个自定义title',
+                intervalId: null,
+                text: '大家都是程序员，可以彼此交流交流,v-model只能应用在表单',
+                n1: 0,
+                n2: 0,
+                result: 0,
+                opt: '+',
+                chose: true,
+                list: ['首页', '分类', '搜索', '我的', '视频'],
+                user: {
+                    id: 1,
+                    name: 'name',
+                    gender: 'man'
+                },
+                peple: [{
+                    id: 1,
+                    name: '李四',
+                }, {
+                    id: 2,
+                    name: '张三',
+                }, {
+                    id: 3,
+                    name: '小吴',
+                }, {
+                    id: 4,
+                    name: '韩飞',
+                }, {
+                    id: 5,
+                    name: '小韩',
+                }],
+                id: '',
+                name: ''
+            },
+            methods: {
+                show: function() {
+                    alert('hello vue')
+                },
+
+                lang() {
+                    if (this.intervalId != null) return;
+                    this.intervalId = setInterval(() => {
+                        var start = this.msg.substring(0, 1);
+                        var end = this.msg.substring(1);
+                        this.msg = end + start;
+                    }, 300);
+                },
+
+                stop() {
+                    clearInterval(this.intervalId);
+                    this.intervalId = null;
+                },
+
+                linkClick() {
+                    console.log('触发a标签');
+                },
+
+                addResult() {
+                    // 方法一
+                    switch (this.opt) {
+                        case '+':
+                            this.result = parseInt(this.n1) + parseInt(this.n2);
+                            break;
+                        case '-':
+                            this.result = parseInt(this.n1) - parseInt(this.n2);
+                            break;
+                        case '*':
+                            this.result = parseInt(this.n1) * parseInt(this.n2);
+                            break;
+                        case '/':
+                            this.result = parseInt(this.n1) / parseInt(this.n2);
+                            break;
+                    }
+                    // 方法二
+                    // var choose = ' parseInt(this.n1)' + this.opt + ' parseInt(this.n2)';
+                    // this.result = eval(choose);
+                },
+
+                add() {
+                    // push尾部添加  unshift头部添加
+                    this.peple.unshift({
+                        id: this.id,
+                        name: this.name
+                    });
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
