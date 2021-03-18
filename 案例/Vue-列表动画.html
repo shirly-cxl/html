@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue案例4--列表动画</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/animate.css" />
+    <script src="../js/vue.js"></script>
+    <style>
+        .ball {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: red;
+        }
+        
+        li {
+            border: 1px dashed #999;
+            margin: 5px;
+            font-size: 12px;
+            line-height: 35px;
+            padding-left: 5px;
+            width: 100%;
+        }
+        
+        li:hover {
+            background-color: hotpink;
+            transition: all 0.8s ease;
+        }
+        
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateY(80px);
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            /* opacity: 1; */
+            transition: all 0.8s ease;
+        }
+        
+        .v-move {
+            transition: all 0.8s ease;
+        }
+        
+        .v-leave-active {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div style="margin-bottom: 20px;">
+            <input type="button" value="加入购物车" @click="add1 =! add1" />
+            <!-- 应用钩子函数时页面中不能出现其他动画 -->
+            <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+                <div class="ball" v-show="add1"></div>
+            </transition>
+        </div>
+        <div>
+            <label>id: <input type="text" v-model='id' /></label>
+            <label>name: <input type="text" v-model='name' /></label>
+            <input type="button" @click="add" value="add" />
+        </div>
+        <div>
+            <!-- <ul> -->
+            <transition-group appear tag="ul">
+                <li v-for="(item, i) in list" :key='item.id' @click="del(i)">
+                    {{item.id}} ------ {{item.name}}
+                </li>
+            </transition-group>
+            <!-- </ul> -->
+        </div>
+    </div>
+
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                add1: false,
+                id: '',
+                name: '',
+                list: [{
+                    id: 1,
+                    name: '张三'
+                }, {
+                    id: 2,
+                    name: '李四'
+                }, {
+                    id: 3,
+                    name: '王五'
+                }, {
+                    id: 4,
+                    name: '周六'
+                }]
+
+            },
+            methods: {
+                beforeEnter: function(el) {
+                    el.style.transform = "translate(0,0)";
+                },
+
+                enter: function(el, done) {
+                    // enter: function(el) {
+                    el.offsetWidth;
+                    el.style.transform = "translate(200px,150px)";
+                    el.style.transition = "all 1s ease";
+                    done();
+                },
+
+                afterEnter: function(el) {
+                    // el.style.display = "none";
+                    this.add1 = !this.add1;
+                },
+
+                add() {
+                    this.list.push({
+                        id: this.id,
+                        name: this.name
+                    });
+                    this.id = this.name = '';
+                },
+
+                del(i) {
+                    this.list.splice(i, 1);
+                }
+            }
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+    <!-- https://www.npmjs.com/package/vue-resource/v/1.3.0 -->
+    <title>Vue案例3--请求接口与动画</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/animate.css" />
+    <script src="../js/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-resource/1.3.4/vue-resource.js"></script>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(150px);
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            /* opacity: 1; */
+            transition: all 0.8s ease;
+        }
+        
+        .my-enter,
+        .my-leave-to {
+            opacity: 0;
+            transform: translateY(150px);
+        }
+        
+        .my-enter-active,
+        .my-leave-active {
+            /* opacity: 1; */
+            transition: all 0.8s ease;
+        }
+        
+        .ball {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加</h3>
+            </div>
+            <div class="panel-body form-inline">
+                <label>
+                    <!-- 按键别名 enter tab up down... -->
+                    名称:&nbsp;<input type="text" class="form-control" v-model="name" @keyup.enter="Add" />
+                </label>
+                <input type="button" value="添加" class="btn btn-primary" @click="Add()" />
+                <label>
+                    搜索名称关键字:&nbsp;<input type="text" class="form-control" v-model="keyword" />
+                </label>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover table-striped ">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>名称</th>
+                    <th>时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item,index) in list" :key="item.id">
+                    <td>{{index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.atime}}</td>
+                    <td>
+                        <input type="button" value="删除" @click.prevent="del(item.id)" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1>动画</h1>
+        <input type="button" value="toggle" @click="flag=!flag" />
+        <transition>
+            <h3 v-if='flag'>这个一个h3的动画</h3>
+        </transition>
+        <transition name="my">
+            <h2 v-if='flag'>这个一个h2的动画</h2>
+        </transition>
+        <h1>使用第三方实现动画</h1>
+        <a href="https://daneden.github.io/animate.css" target="new">https://daneden.github.io/animate.css</a>
+        <!-- <input type="button" value="toggle" @click="check=!check" />
+        <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut" >
+            <h2 v-if='check'>这个一个第三方实现的动画animate</h2>
+        </transition> -->
+        <input type="button" value="toggle" @click="check=!check" />
+        <transition enter-active-class="bounceIn" leave-active-class="bounceOut" :duration="{enter:200, leave:400}">
+            <h2 v-if='check' class="animated">这个一个第三方实现的动画animate</h2>
+        </transition>
+        <br/>
+        <div style="margin-bottom: 20px;">
+            <input type="button" value="加入购物车" @click="add1 =! add1" />
+            <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+                <div class="ball" v-show="add1"></div>
+            </transition>
+        </div>
+        <p>资料包：https://pan.baidu.com/s/13pjAGpYEOnWw2gSwV1dYUA#list/path=%2F</p>
+    </div>
+
+
+    <script>
+        //全局
+        Vue.http.options.root = 'http://157.122.54.189:9088/';
+        Vue.http.options.emulateJSON = true;
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: false,
+                check: false,
+                add1: false,
+                name: '',
+                keyword: '',
+                list: [{
+                    id: 1,
+                    name: '1111',
+                    atime: '2020-06-07'
+                }, {
+                    id: 2,
+                    name: '2222',
+                    atime: '2020-07-06'
+                }]
+
+            },
+            created() {
+                // 初始化
+                // this.getAllList();
+            },
+            methods: {
+
+                //获取所有品牌列表
+                getAllList() {
+                    this.$http.get('image/v1/vertical/category').then(result => {
+
+                        var result = result.body;
+
+                        if (result.status === 0) {
+                            this.list = result.res.category
+                        } else {
+                            alert('获取数据失败！')
+                        }
+                    })
+                },
+
+                Add() {
+                    // this.$http.post('url',{name:this.name},{emulateJSON:true}).then(result => {
+                    //     if (result.body.status === 0) {
+                    //         this.getAllList();
+                    //         this.name = '';
+                    //     } else {
+                    //         alert('失败！')
+                    //     }
+                    // })
+                    var car = {
+                        name: this.name,
+                        ctime: '2020-08-09'
+                    };
+                    this.list.push(car);
+                    this.name = '';
+                },
+
+                del(id) {
+                    // this.$http.get('url'+id).then(result => {
+                    //     if (result.body.status === 0) {
+                    //         this.getAllList();
+                    //     } else {
+                    //         alert('失败！')
+                    //     }
+                    // })
+                    var index = this.list.findIndex(item => {
+                        if (item.id == id) {
+                            return true;
+                        }
+                    });
+                    this.list.splice(index, 1);
+                },
+
+                search(keyword) {
+                    return this.list.filter(item => {
+                        if (item.name.includes(keyword)) {
+                            return item;
+                        }
+                    });
+
+                },
+
+                beforeEnter: function(el) {
+                    el.style.transform = "translate(0,0)";
+                },
+
+                // enter: function(el,done) {
+                enter: function(el) {
+                    el.offsetWidth;
+                    el.style.transform = "translate(200px,150px)";
+                    el.style.transition = "all 1s ease";
+                    // done();
+                },
+
+                afterEnter: function(el) {
+                    // el.style.display = "none";
+                    this.add1 = !this.add1;
+                },
+
+            }
+
+        });
+    </script>
+</body>
+
+</html>

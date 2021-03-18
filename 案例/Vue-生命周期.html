@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue案例2--生命周期</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../js/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-resource/1.3.4/vue-resource.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>生命周期</h1>
+        <ul>
+            <li>beforeCreate</li>
+            <li>created</li>
+            <li>beforeMount</li>
+            <li>mounted</li>
+            <li>beforeUpdate</li>
+            <li>updated</li>
+            <li>beforeDestroy</li>
+            <li>destroyed</li>
+        </ul>
+        <h3 id='h3'>{{msg}}</h3>
+        <input type="button" value="修改msg" @click="msg='No'" />
+        <div style="margin-top: 20px;">
+            <input type="button" value="get请求" @click="getInfo" />
+            <input type="button" value="post请求" @click="postInfo" />
+            <input type="button" value="jsonp请求" @click="jsonpInfo" />
+        </div>
+        <h1>客户端jsonp</h1>
+        <script>
+            function show1() {
+                console.log('客户端jsonp')
+            }
+        </script>
+        <script src="http://127.0.0.1:3000/getscript?callback=show1"></script>
+    </div>
+
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'ok',
+            },
+            methods: {
+                show() {
+                    console.log('执行了show方法')
+                },
+
+                getInfo() {
+                    this.$http.get('http://vue.studyit.io/api/getlunbo').then(function(result) {
+                        console.log(result);
+                    })
+                },
+
+                postInfo() {
+                    this.$http.post(
+                        'http://vue.studyit.io/api/post', {}, {
+                            emulateJSON: true
+                        }).then(result => {
+                        console.log(result.body);
+                    })
+                },
+
+                jsonpInfo() {
+                    this.$http.jsonp(
+                        'http://vue.studyit.io/api/jsonp').then(result => {
+                        console.log(result.body);
+                    })
+                }
+            },
+            beforeCreate() {
+                //表示实例完全被创建出来之前，会执行它
+                //注：在beforeCreate生命周期执行的时候，data和 methods还没有被初始化
+                console.log('执行了beforeCreate');
+            },
+            created() {
+                console.log('执行了created');
+                this.show();
+            },
+            beforeMount() {
+                console.log('执行了beforeMount');
+                console.log(document.getElementById('h3').innerText);
+            },
+            mounted() {
+                console.log('执行了mounted');
+            },
+            beforeUpdate() {
+                console.log('执行了beforeUpdate,数据被更新，但页面还没有被更新');
+                console.log('界面上的元素的内容' + document.getElementById('h3').innerText + 'data中的msg:' + this.msg);
+            },
+            updated() {
+                console.log('执行了updated,数据被更新，页面被更新');
+                console.log('界面上的元素的内容' + document.getElementById('h3').innerText + 'data中的msg:' + this.msg);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue案例5--组件化与模块化</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css//animate.css" />
+    <script src="../js/vue.js"></script>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(150px);
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            /* opacity: 1; */
+            transition: all 0.8s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <h3>
+            （1）组件化：是从UI界面进行划分的——前端的组件化可以方便 UI界面的重用 <br /> （2）模块化：是从代码逻辑的角度进行划分的——方便后台代码的分层开发，保证每个功能模块的智能单一。
+        </h3>
+        <div>
+            <h2>创建组件的方式：</h2>
+            <my-coml></my-coml>
+            <mycom2></mycom2>
+            <my-com3></my-com3>
+            <p>注：不论是哪种方式创建出来的组件，组件的template 属性指向的模板内容，必须有且只有唯一的一个根元素</p>
+        </div>
+        <login></login>
+        <div style="display: flex;margin: 20px;">
+            <counter></counter>
+            <counter></counter>
+            <counter></counter>
+        </div>
+        <h2>组件切换</h2>
+        <p>方式一:采用component</p>
+        <div>
+            <a href="#" @click.prevent="comname = 'denglu'">登录</a>
+            <a href="#" @click.prevent="comname = 'zuce'">注册</a>
+            <transition mode="out-in">
+                <component :is="comname"></component>
+            </transition>
+        </div>
+        <p>方式二：v-if</p>
+        <div>
+            <a href="#" @click.prevent="flag = true">登录</a>
+            <a href="#" @click.prevent="flag = false">注册</a>
+            <denglu v-if="flag"></denglu>
+            <zuce v-else="flag"></zuce>
+        </div>
+
+    </div>
+
+    <template id="tmp1">
+        <div>
+            <h1>这是通过template元素，在外部定义的组件结构，常用</h1>
+            <h4>不错</h4>
+        </div>
+    </template>
+
+    <template id="tmp2">
+        <div>
+            <h1>这是通过template元素，在外部定义的私有组件</h1>
+            <h4>不错</h4>
+        </div>
+    </template>
+
+    <template id="counter1">
+        <div>
+            <input type="button" value="+1" @click="increment" />
+            <h3>{{count}}</h3>
+        </div>
+    </template>
+
+
+    <script>
+        // //使用Vue.extend来创建全局的vue组件
+        // var coml = Vue.extend({
+        //     //通过 template 属性指定了组件要展示的html结构
+        //     template: '<h3>这是使用Vue.extend创建的组件</h3>'
+        // })
+        // //myComl--->my-coml  mycoml--->mycoml
+        // Vue.component('myComl', coml);
+        Vue.component('myComl', Vue.extend({
+            template: '<div><h1>这是使用Vue.extend创建的组件</h1><h3>{{msg}}</h3></div>',
+            data: function() {
+                return {
+                    msg: '这是组件中data定义的数据'
+                };
+            }
+        }));
+
+        Vue.component('mycom2', {
+            template: '<div><h1>这是使用Vue.component创建出来的组件</h1><p>span</p></div>'
+        });
+
+        Vue.component('myCom3', Vue.extend({
+            template: '#tmp1'
+        }));
+
+
+        // var dataObj = {
+        //     count: 0
+        // }
+        Vue.component('counter', {
+            template: '#counter1',
+            data: function() {
+                // return dataObj;
+                return {
+                    count: 0
+                }
+            },
+            methods: {
+                increment() {
+                    this.count++;
+                }
+            }
+        });
+
+        Vue.component('denglu', {
+            template: '<h3>登录组件</h3>'
+        });
+
+        Vue.component('zuce', {
+            template: '<h3>注册组件</h3>'
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: true,
+                comname: 'denglu'
+            },
+            methods: {},
+            //私有的vue组件
+            components: {
+                login: {
+                    template: '#tmp2'
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue案例6--父组件向子组件传值</title>
+    <script src="../js/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <ul>
+            <li>
+                <h2>传数据</h2>
+                <coml :parentmsg="msg"></coml>
+            </li>
+            <li>
+                <h2>2.传方法</h2>
+                <com2 @func="show"></com2>
+
+            </li>
+            <li>
+                <h2>$emit触发调用方式</h2>
+            </li>
+        </ul>
+
+    </div>
+
+    <template id="tmp2">
+        <div>
+            <h3>这是子组件</h3>
+            <input type="button" value="触发父组件的show方法" @click="myclick" />
+        </div>
+    </template>
+
+    <script>
+        var com2 = {
+            template: "#tmp2",
+            data() {
+                return {
+                    son: {
+                        name: '小头儿子',
+                        age: 6
+                    }
+                }
+            },
+            methods: {
+                myclick() {
+                    this.$emit('func', '(子组件向父组件传值),' + this.son.name)
+                }
+            }
+        }
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '啊，这个是父组件的数据msg',
+                name: null,
+            },
+            methods: {
+                show(data) {
+                    this.name = data;
+                    alert('调用了父组件身上的show方法' + this.name)
+                }
+            },
+            components: {
+                coml: {
+                    //可读可写
+                    data() {
+                        return {
+                            title: '子组件标题'
+                        }
+                    },
+                    template: '<div><h3>这是子组件---{{parentmsg}}</h3><h2>{{title}}</h2></div>',
+                    //只能读
+                    props: [
+                        'parentmsg'
+                    ]
+                },
+                com2,
+            },
+        });
+    </script>
+</body>
+
+</html>
