@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue案例9--监听</title>
+    <!-- <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css" /> -->
+    <!-- <link rel="stylesheet" href="js/animate.css" /> -->
+    <script src="../js/vue.js"></script>
+    <script src="../js/vue-router.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <p>方式1：@keyup</p>
+            <input type="text" v-model="firstname" @keyup="getFullnmae" />+
+            <input type="text" v-model="lastname" @keyup="getFullnmae" />=
+            <input type="text" v-model="fullname" />
+        </div>
+        <div>
+            <p>方式2：watch</p>
+            <input type="text" v-model="firstname2" />+
+            <input type="text" v-model="lastname2" />=
+            <input type="text" v-model="fullname2" />
+        </div>
+        <div>
+            <p>计算属性computed</p>
+            <input type="text" v-model="firstname3" />+
+            <input type="text" v-model="milldenname3" />+
+            <input type="text" v-model="lastname3" />=
+            <input type="text" v-model="fullname3" />
+            <p>这是拿缓存中的数据：{{fullname3}}</p>
+        </div>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                firstname: '',
+                lastname: '',
+                fullname: '',
+                firstname2: '',
+                lastname2: '',
+                fullname2: '',
+                firstname3: '',
+                milldenname3: '',
+                lastname3: '',
+            },
+            created() {},
+            methods: {
+                getFullnmae() {
+                    this.fullname = this.firstname + '-' + this.lastname
+                }
+            },
+            //监听
+            watch: {
+                // 'firstname2': function() {
+                //     this.fullname2 = this.firstname2 + '-' + this.lastname2
+                // },
+                // 'lastname2': function() {
+                //     this.fullname2 = this.firstname2 + '-' + this.lastname2
+                // },
+                'firstname2': function(newVal, lastVal) {
+                    this.fullname2 = newVal + '-' + this.lastname2
+                },
+                'lastname2': function(lastVal) {
+                    this.fullname2 = this.firstname2 + '-' + lastVal
+                }
+            },
+            //定义属性
+            computed: {
+                //计算属性调用时不能用（）,且自动缓存数据
+                'fullname3': function() {
+                    return this.firstname3 + '-' + this.milldenname3 + '-' + this.lastname3
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
